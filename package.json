@@ -2,16 +2,18 @@
   "name": "bm",
   "private": true,
   "scripts": {
-    "prebuild": "eslint src/**/*.js",
+    "prebuild": "npm run eslint",
     "build": "npm run browserify && npm run uglifyjs",
     "postbuild": "cp dist/bm.js test/lib",
     "browserify": "browserify --debug src/index.js > dist/bm.js",
     "uglifyjs": "uglifyjs dist/bm.js > dist/bm.min.js",
+    "eslint": "eslint src/**/*.js",
     "chai_js": "cp node_modules/chai/chai.js test/lib/",
     "mocha_js": "cp node_modules/mocha/mocha.js test/lib/",
     "mocha_css": "cp node_modules/mocha/mocha.css test/lib/",
     "sinon_js": "cp node_modules/sinon/pkg/sinon.js test/lib/",
-    "test": "mocha test/index.js"
+    "pretest": "npm run eslint",
+    "test": "opener test/index.html"
   },
   "devDependencies": {
     "browserify": "^11.0.0",
