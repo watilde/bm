@@ -1,3 +1,18 @@
+"use strict";
+
+function buildUrl(url, params) {
+  if (params.length === 0) { return url; }
+  url += "?";
+  Object.keys(params).forEach(function (key) {
+    var val = params[key];
+    url += key + "=" + val;
+    url += "&";
+  });
+  url = url.slice(0, -1);
+
+  return url;
+}
+
 module.exports = function (url, params, onsuccess, onerror) {
   if (typeof XMLHttpRequest === void 0) {
     // This isn't Node.js app yet
@@ -19,16 +34,3 @@ module.exports = function (url, params, onsuccess, onerror) {
   };
   xhr.send(null);
 };
-
-function buildUrl(url, params) {
-  if (params.length === 0) return url;
-  url += "?";
-  Object.keys(params).forEach(function (key) {
-    var val = params[key];
-    url += key + "=" + val;
-    url += "&";
-  });
-  url = url.slice(0, -1);
-
-  return url;
-}

@@ -1,3 +1,17 @@
+"use strict";
+
+function buildParams(params) {
+  var out = "";
+  Object.keys(params).forEach(function (key) {
+    var val = params[key];
+    out += key + "=" + val;
+    out += "&";
+  });
+  out = out.slice(0, -1);
+
+  return out;
+}
+
 module.exports = function (url, params, onsuccess, onerror) {
   if (typeof XMLHttpRequest === void 0) {
     // This isn't Node.js app yet
@@ -19,15 +33,3 @@ module.exports = function (url, params, onsuccess, onerror) {
   params = buildParams(params);
   xhr.send(params);
 };
-
-function buildParams(params) {
-  var out = "";
-  Object.keys(params).forEach(function (key) {
-    var val = params[key];
-    out += key + "=" + val;
-    out += "&";
-  });
-  out = out.slice(0, -1);
-
-  return out;
-}

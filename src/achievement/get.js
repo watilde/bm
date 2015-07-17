@@ -1,3 +1,4 @@
+"use strict";
 var get = require("../lib/get");
 var config = require("../lib/config");
 var url = config.url;
@@ -24,4 +25,4 @@ module.exports = function (achievementId, onsuccess, onerror) {
 
   var params = {userId: this.userId, achievementId: achievementId};
   get(url + api, params, onsuccess, onerror);
-}
+};

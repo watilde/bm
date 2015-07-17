@@ -1,3 +1,4 @@
+"use strict";
 var post = require("../lib/post");
 var config = require("../lib/config");
 var url = config.url;

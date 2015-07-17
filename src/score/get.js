@@ -1,3 +1,4 @@
+"use strict";
 var get = require("../lib/get");
 var config = require("../lib/config");
 var url = config.url;

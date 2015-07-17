@@ -1,3 +1,4 @@
+"use strict";
 var post = require("../lib/post");
 var config = require("../lib/config");
 var url = config.url;
@@ -6,7 +7,7 @@ var isFunction = require("../lib/isFunction");
 var api = config.endpoint.updateAchievement;
 
 /**
- * Updates user’s achievement progress with the given s​tepsComplete,
+ * Updates user’s achievement progress with the given stepsCompete,
  * overwriting the current value
  *
  * @param {Number} achievementId
