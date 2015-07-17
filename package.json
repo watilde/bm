@@ -2,12 +2,19 @@
   "name": "bm",
   "private": true,
   "scripts": {
+    "prebuild": "eslint src/**/*.js",
     "build": "browserify --debug src/index.js > dist/bm.js",
     "postbuild": "uglifyjs dist/bm.js > dist/bm.min.js",
-    "start": "python -m SimpleHTTPServer"
+    "start": "python -m SimpleHTTPServer",
+    "karma": "karma"
   },
   "devDependencies": {
     "browserify": "^11.0.0",
+    "karma": "^0.13.1",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-cli": "^0.1.0",
+    "karma-mocha": "^0.2.0",
+    "mocha": "^2.2.5",
     "uglify-js": "^2.4.23"
   }
 }
