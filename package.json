@@ -1,0 +1,13 @@
+{
+  "name": "bm",
+  "private": true,
+  "scripts": {
+    "build": "browserify --debug src/index.js > dist/bm.js",
+    "postbuild": "uglifyjs dist/bm.js > dist/bm.min.js",
+    "start": "python -m SimpleHTTPServer"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.0",
+    "uglify-js": "^2.4.23"
+  }
+}
