@@ -3,18 +3,22 @@
   "private": true,
   "scripts": {
     "prebuild": "eslint src/**/*.js",
-    "build": "browserify --debug src/index.js > dist/bm.js",
-    "postbuild": "uglifyjs dist/bm.js > dist/bm.min.js",
-    "start": "python -m SimpleHTTPServer",
-    "karma": "karma"
+    "build": "npm run browserify && npm run uglifyjs",
+    "postbuild": "cp dist/bm.js test/lib",
+    "browserify": "browserify --debug src/index.js > dist/bm.js",
+    "uglifyjs": "uglifyjs dist/bm.js > dist/bm.min.js",
+    "chai_js": "cp node_modules/chai/chai.js test/lib/",
+    "mocha_js": "cp node_modules/mocha/mocha.js test/lib/",
+    "mocha_css": "cp node_modules/mocha/mocha.css test/lib/",
+    "sinon_js": "cp node_modules/sinon/pkg/sinon.js test/lib/",
+    "test": "mocha test/index.js"
   },
   "devDependencies": {
     "browserify": "^11.0.0",
-    "karma": "^0.13.1",
-    "karma-chrome-launcher": "^0.2.0",
-    "karma-cli": "^0.1.0",
-    "karma-mocha": "^0.2.0",
+    "chai": "^3.1.0",
+    "eslint": "^0.24.1",
     "mocha": "^2.2.5",
+    "sinon": "^1.15.4",
     "uglify-js": "^2.4.23"
   }
 }

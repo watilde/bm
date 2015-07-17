@@ -1,6 +1,22 @@
 <html>
-<body>
-  <script src="../dist/bm.js"></script>
-  <script src="./index.js"></script>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="lib/mocha.css" />
+    </head>
+    <body>
+        <div id="mocha"></div>
+        <script src="lib/chai.js"></script>
+        <script src="lib/mocha.js"></script>
+        <script src="lib/sinon.js"></script>
+        <script src="lib/bm.js"></script>
+        <script>
+          mocha.setup('bdd');
+          var assert = chai.assert;
+        </script>
+        <script src="index.js"></script>
+        <script>
+          mocha.checkLeaks();
+          mocha.run();
+        </script>
+    </body>
 </html>
